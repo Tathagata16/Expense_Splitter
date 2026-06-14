@@ -38,7 +38,7 @@ DEBUG = config(
     default=False,
 )
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://expensesplitter-production-32ae.up.railway.app/"]
 
 
 # Application definition
@@ -155,4 +155,5 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://expensesplitter-production-32ae.up.railway.app/"
 ]
