@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_BASE_URL } from "../config/api";
 
 function Home() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function Home() {
       const accessToken = localStorage.getItem("access");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/groups/invitations/",
+        `${API_BASE_URL}/api/groups/invitations/`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -63,7 +64,7 @@ function Home() {
       const accessToken = localStorage.getItem("access");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/groups/",
+        `${API_BASE_URL}/api/groups/`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -93,7 +94,7 @@ function Home() {
       const accessToken = localStorage.getItem("access");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/groups/create/",
+        `${API_BASE_URL}/api/groups/create/`,
         {
           method: "POST",
 
@@ -142,7 +143,7 @@ function Home() {
         localStorage.getItem("access");
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/groups/invitations/${invitationId}/accept/`,
+        `${API_BASE_URL}/api/groups/invitations/${invitationId}/accept/`,
         {
           method: "POST",
 
@@ -184,7 +185,7 @@ function Home() {
         localStorage.getItem("access");
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/groups/invitations/${invitationId}/reject/`,
+        `${API_BASE_URL}/api/groups/invitations/${invitationId}/reject/`,
         {
           method: "POST",
 
@@ -221,7 +222,7 @@ function Home() {
     const accessToken = localStorage.getItem("access");
 
     try {
-      await fetch("http://127.0.0.1:8000/api/accounts/logout/", {
+      await fetch(`${API_BASE_URL}/api/accounts/logout/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

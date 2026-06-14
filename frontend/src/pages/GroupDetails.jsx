@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"
+import { API_BASE_URL } from '../config/api';
+
 
 function GroupDetails() {
 
@@ -83,7 +85,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/groups/${id}/`,
+                `${API_BASE_URL}/api/groups/${id}/`,
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -130,7 +132,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/groups/users/search/?q=${searchTerm}`,
+                `${API_BASE_URL}/api/groups/users/search/?q=${searchTerm}`,
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -158,7 +160,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/groups/${id}/invite/`,
+                `${API_BASE_URL}/api/groups/${id}/invite/`,
                 {
                     method: "POST",
 
@@ -203,7 +205,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/expenses/groups/${id}/`,
+                `${API_BASE_URL}/api/expenses/groups/${id}/`,
                 {
                     headers: {
                         Authorization: `Bearer ${accessToken}`,
@@ -288,7 +290,7 @@ function GroupDetails() {
             }
 
             const response = await fetch(
-                "http://127.0.0.1:8000/api/expenses/",
+                `${API_BASE_URL}/api/expenses/`,
                 {
                     method: "POST",
 
@@ -350,7 +352,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/expenses/${expenseId}/`,
+                `${API_BASE_URL}/api/expenses/${expenseId}/`,
                 {
                     headers: {
                         Authorization:
@@ -381,7 +383,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/expenses/groups/${id}/balances/`,
+                `${API_BASE_URL}/api/expenses/groups/${id}/balances/`,
                 {
                     headers: {
                         Authorization:
@@ -408,7 +410,7 @@ function GroupDetails() {
                 localStorage.getItem("access");
 
             const response = await fetch(
-                `http://127.0.0.1:8000/api/expenses/groups/${id}/settlements/`,
+                `${API_BASE_URL}/api/expenses/groups/${id}/settlements/`,
                 {
                     headers: {
                         Authorization:
@@ -437,7 +439,7 @@ function GroupDetails() {
                 );
 
             const response = await fetch(
-                "http://127.0.0.1:8000/api/expenses/settlements/",
+                `${API_BASE_URL}/api/expenses/settlements/`,
                 {
                     method: "POST",
 

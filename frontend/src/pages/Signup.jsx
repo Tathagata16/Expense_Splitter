@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { API_BASE_URL } from "../config/api";
 function Signup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ function Signup() {
 
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/accounts/signup/",
+      `${API_BASE_URL}/api/accounts/signup/`,
       {
         method: "POST",
         headers: {

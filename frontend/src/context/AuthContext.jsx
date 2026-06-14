@@ -4,6 +4,7 @@ import {
     useEffect,
     useState,
 } from "react";
+import { API_BASE_URL } from "../config/api";
 
 const AuthContext = createContext();
 
@@ -35,7 +36,7 @@ export function AuthProvider({
         try {
             const response =
                 await fetch(
-                    "http://127.0.0.1:8000/api/accounts/me/",
+                    `${API_BASE_URL}/api/accounts/me/`,
                     {
                         headers: {
                             Authorization:
