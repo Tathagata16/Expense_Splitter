@@ -155,5 +155,5 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://expensesplitter-production-32ae.up.railway.app/"
+    "https://expensesplitter-production-32ae.up.railway.app"
 ]
