@@ -38,7 +38,7 @@ DEBUG = config(
     default=False,
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
