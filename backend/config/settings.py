@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from decouple import config
+
 from pathlib import Path
 from datetime import timedelta
 
@@ -27,10 +29,14 @@ SIMPLE_JWT = {
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i3ks_1!+z)z6**$-m0o=!(m7fu52n6yp=c=-qusic!gq(%0rjq'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config(
+    "DEBUG",
+    cast=bool,
+    default=False,
+)
 
 ALLOWED_HOSTS = []
 
@@ -90,11 +96,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'splitwise_db',
-        'USER':'splitwise_user',
-        'PASSWORD':'splitwise_password',
-        "HOST": "localhost",
-        "PORT": "5433",
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
